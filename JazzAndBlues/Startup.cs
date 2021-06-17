@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using JazzAndBlues.Data;
-
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 namespace JazzAndBlues
 {
     public class Startup
@@ -25,6 +25,8 @@ namespace JazzAndBlues
         {
             services.AddRazorPages();
             services.AddSingleton<IShopService, InMemoryDb>();
+            // existing code which include services.AddApplicationInsightsTelemetry() to enable Application Insights.
+            services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.AuthenticationApiKey = "f59bfdd5-c71e-493a-ab1a-b54dbbe0384c");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
