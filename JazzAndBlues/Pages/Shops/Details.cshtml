@@ -1,0 +1,14 @@
+﻿@page "{id:int}"
+@model JazzAndBlues.Pages.Shops.DetailsModel
+@{
+}
+
+
+
+<div class="jumbotron-fluid ">
+    <h2>@Model.Shop.StoreName</h2>
+    <h3>@Model.Shop.Address.StreetName - @Model.Shop.Address.City</h3>
+    <h4>Serves @Model.Shop.Cuisine food</h4>
+    <br />
+    <a asp-page="./ShopList" class="btn btn-dark">All Shops</a>
+</div>
